@@ -45,7 +45,7 @@ export GEO_API_KEY=your_api_key
 
 ```bash
 cd scripts
-chmod + x setup_env.sh
+chmod +x setup_env.sh
 ./setup_env.sh
 ```
 
