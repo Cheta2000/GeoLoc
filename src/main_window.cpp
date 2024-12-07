@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     centralWidget->setStyleSheet("background-color: #f3f9fc;");
 
     textField = new QLineEdit(this);
+    textField->setObjectName("INPUT");
     textField->setPlaceholderText("Enter URL or IP...");
     textField->setStyleSheet("QLineEdit {"
                              "    padding: 10px;"
@@ -31,8 +32,11 @@ MainWindow::MainWindow(QWidget *parent)
                              "}");
 
     button1 = new QPushButton("ADD", this);
+    button1->setObjectName("ADD");
     button2 = new QPushButton("DELETE", this);
+    button2->setObjectName("DELETE");
     button3 = new QPushButton("SEARCH", this);
+    button3->setObjectName("SEARCH");
 
     QString buttonStyle = "QPushButton {"
                           "    background-color: #4CAF50;"
@@ -52,13 +56,14 @@ MainWindow::MainWindow(QWidget *parent)
     button2->setStyleSheet(buttonStyle);
     button3->setStyleSheet(buttonStyle);
 
-    resultLabel = new QLabel("", this); // Add QLabel for result display
+    resultLabel = new QLabel("", this);
+    resultLabel->setObjectName("RESULT");
     resultLabel->setAlignment(Qt::AlignCenter);
-    resultLabel->setWordWrap(true); // Enable word wrapping for multiline text
+    resultLabel->setWordWrap(true);
     resultLabel->setStyleSheet("color: #000; font-size: 16px; background-color: #e0f7fa; padding: 10px; border: 1px solid #76c7c0; border-radius: 5px;");
 
-    resultLabel->setMinimumHeight(100);                                         // Set a minimum height to fit multiple lines
-    resultLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding); // Ensure the label expands vertically
+    resultLabel->setMinimumHeight(100);
+    resultLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     QVBoxLayout *layout = new QVBoxLayout(centralWidget);
     layout->setContentsMargins(30, 30, 30, 30);
@@ -77,7 +82,7 @@ MainWindow::MainWindow(QWidget *parent)
     buttonLayout->addWidget(button3);
     layout->addLayout(buttonLayout);
 
-    layout->addWidget(resultLabel); // Add result label to the layout
+    layout->addWidget(resultLabel);
 
     QSpacerItem *verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
     layout->addItem(verticalSpacer);
@@ -87,7 +92,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 void MainWindow::setResultText(const QString &resultText)
 {
-    resultLabel->setText(resultText); // Update the QLabel with the result text
+    resultLabel->setText(resultText);
 }
 
 QString MainWindow::getTextInput() const

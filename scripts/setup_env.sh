@@ -36,4 +36,9 @@ else
     exit 1
 fi
 
+if [ -z "$GEO_API_KEY" ]; then
+    echo "GEO_API_KEY environment variable is not set. Please set it before proceeding."
+    exit 1
+fi
+
 echo "Setup completed successfully."

@@ -9,6 +9,7 @@
 #include "api_manager.h"
 #include "main_window.h"
 
+// class to handle communcation between ui, db and api
 class App : public QObject
 {
     Q_OBJECT
@@ -19,11 +20,14 @@ public:
     void run();
 
 private slots:
+    // buttons actions
     void onAddButtonClicked();
     void onDeleteButtonClicked();
     void onGetButtonClicked();
+    // api actions
     void onApiDataReceived(const QString &ip_or_url, const QString &country, const QString &city, double latitude, double longitude);
     void onApiError(const QString &error);
+    // database actions
     void onDatabaseError(const QString &error);
     void onDatabaseSuccess(const QString &result);
     void onDatabaseDataRetrieved(const QString &country, const QString &city, double latitude, double longitude);

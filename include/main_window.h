@@ -6,6 +6,7 @@
 #include <QLineEdit>
 #include <QLabel>
 
+// class to handle ui
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
